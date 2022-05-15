@@ -12,9 +12,9 @@ UnitFrames.lua
 
 # GUI_config.lua
 
-# Range.lua
+Range.lua
 
-# DamageFont.lua
+DamageFont.lua
 
 # Cooldown\embeds.xml
 # Cooldown\localization.xml
@@ -22,34 +22,34 @@ UnitFrames.lua
 # Cooldown\cc.lua
 # Cooldown\effects.xml
 
-# ChatLootIcons.lua
+ChatLootIcons.lua
 
-# CastBar.lua
+CastBar.lua
 
-# SellGrey.lua
+SellGrey.lua
 
-# AutoRepair.lua
-# AutoRepair.xml
+AutoRepair.lua
+AutoRepair.xml
 
-# TooltipItemIcon.lua
+TooltipItemIcon.lua
 
 # HP_Watch.lua
 
 # MailNotifier.lua
 
-# ChatBar\ChatBar.xml
+ChatBar\ChatBar.xml
 
-# oGlow\glow.lua
-# oGlow\bags.lua
-# oGlow\char.lua
-# oGlow\inspect.lua
-# oGlow\bank.lua
-# oGlow\gbank.lua
-# oGlow\trade.lua
-# oGlow\tradeskill.lua
-# oGlow\craft.lua
-# oGlow\merchant.lua
-# oGlow\mail.lua
+oGlow\glow.lua
+oGlow\bags.lua
+oGlow\char.lua
+oGlow\inspect.lua
+oGlow\bank.lua
+oGlow\gbank.lua
+oGlow\trade.lua
+oGlow\tradeskill.lua
+oGlow\craft.lua
+oGlow\merchant.lua
+oGlow\mail.lua
 
 # teksLoot.lua
 
