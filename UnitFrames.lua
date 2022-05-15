@@ -7,6 +7,10 @@ TargetFrame:ClearAllPoints()TargetFrame:SetPoint("LEFT",UIParent,"CENTER",85,-18
 --Панель пета
 PetActionBarFrame:ClearAllPoints()PetActionBarFrame:SetPoint("CENTER",MultiBarBottomRight,"TOP",32,24)PetActionBarFrame.SetPoint=function()end
 
+--Фремы группы
+PartyMemberFrame1:ClearAllPoints()PartyMemberFrame1:SetPoint("CENTER",PlayerFrame,"TOP",-150, 25)PartyMemberFrame1.SetPoint=function()end
+
+
 --Minimap
 MinimapBorderTop:Hide()
 MinimapZoomIn:Hide()
