@@ -16,11 +16,11 @@ Range.lua
 
 DamageFont.lua
 
-# Cooldown\embeds.xml
-# Cooldown\localization.xml
-# Cooldown\config.lua
-# Cooldown\cc.lua
-# Cooldown\effects.xml
+Cooldown\embeds.xml
+Cooldown\localization.xml
+Cooldown\config.lua
+Cooldown\cc.lua
+Cooldown\effects.xml
 
 ChatLootIcons.lua
 
