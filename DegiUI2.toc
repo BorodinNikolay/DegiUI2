@@ -7,7 +7,7 @@
 UnitFrames.lua
 
 
-# FramesConfig.lua
+FramesConfig.lua
 # SimplePercent.lua
 
 # GUI_config.lua
@@ -57,4 +57,4 @@ oGlow\mail.lua
 
 # DispelThatBuff.lua
 
-# KeyBind.lua
+KeyBind.lua

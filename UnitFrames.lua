@@ -8,7 +8,12 @@ TargetFrame:ClearAllPoints()TargetFrame:SetPoint("LEFT",UIParent,"CENTER",85,-18
 PetActionBarFrame:ClearAllPoints()PetActionBarFrame:SetPoint("CENTER",MultiBarBottomRight,"TOP",32,24)PetActionBarFrame.SetPoint=function()end
 
 --Фремы группы
-PartyMemberFrame1:ClearAllPoints()PartyMemberFrame1:SetPoint("CENTER",PlayerFrame,"TOP",-150, 25)PartyMemberFrame1.SetPoint=function()end
+PartyMemberFrame1:ClearAllPoints()PartyMemberFrame1:SetPoint("CENTER",PlayerFrame,"TOP",-150, 80)PartyMemberFrame1.SetPoint=function()end
+
+PartyMemberFrame1:SetScale(1.5)
+PartyMemberFrame2:SetScale(1.5)
+PartyMemberFrame3:SetScale(1.5)
+PartyMemberFrame4:SetScale(1.5)
 
 
 --Minimap
@@ -57,70 +62,70 @@ MultiBarLeft:SetScale(0.8)
 
 
 --цвет ХП по классу
-local UnitIsPlayer, UnitIsConnected, UnitClass, RAID_CLASS_COLORS =
-UnitIsPlayer, UnitIsConnected, UnitClass, RAID_CLASS_COLORS
-local _, class, c
+-- local UnitIsPlayer, UnitIsConnected, UnitClass, RAID_CLASS_COLORS =
+-- UnitIsPlayer, UnitIsConnected, UnitClass, RAID_CLASS_COLORS
+-- local _, class, c
 
-local function colour(statusbar, unit)
-if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit and UnitClass(unit) then
-_, class = UnitClass(unit)
-c = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
-statusbar:SetStatusBarColor(c.r, c.g, c.b)
-end
-end
+-- local function colour(statusbar, unit)
+-- if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit and UnitClass(unit) then
+-- _, class = UnitClass(unit)
+-- c = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
+-- statusbar:SetStatusBarColor(c.r, c.g, c.b)
+-- end
+-- end
 
-hooksecurefunc("UnitFrameHealthBar_Update", colour)
-hooksecurefunc("HealthBar_OnValueChanged", function(self)
-colour(self, self.unit)
-end)
+-- hooksecurefunc("UnitFrameHealthBar_Update", colour)
+-- hooksecurefunc("HealthBar_OnValueChanged", function(self)
+-- colour(self, self.unit)
+-- end)
 
-local sb = _G.GameTooltipStatusBar
-local addon = CreateFrame("Frame", "StatusColour")
-addon:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-addon:SetScript("OnEvent", function()
-colour(sb, "mouseover")
-end)
+-- local sb = _G.GameTooltipStatusBar
+-- local addon = CreateFrame("Frame", "StatusColour")
+-- addon:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+-- addon:SetScript("OnEvent", function()
+-- colour(sb, "mouseover")
+-- end)
 
 
 --скрытие названия макросов
-hooksecurefunc('ActionButton_UpdateHotkeys', function(self)
-    local macro = _G[self:GetName()..'Name']
-    if macro then macro:Hide() end
-end)
+-- hooksecurefunc('ActionButton_UpdateHotkeys', function(self)
+--     local macro = _G[self:GetName()..'Name']
+--     if macro then macro:Hide() end
+-- end)
 
 
 --Увеличение размера собственныз дебаффов
-hooksecurefunc("TargetFrame_UpdateAuraPositions", function(self, auraName, numAuras, numOppositeAuras,largeAuraList, updateFunc, maxRowWidth, offsetX)
-    local AURA_OFFSET_Y = 2
-    local LARGE_AURA_SIZE = 24 -- рамеер ВАШИХ баффов/дебаффов.
-    local SMALL_AURA_SIZE = 16 -- рамеер чужих баффов/дебаффов.
-    local size
-    local offsetY = AURA_OFFSET_Y
-    local rowWidth = 0
-    local firstBuffOnRow = 1
-    for i=1, numAuras do
-    if ( largeAuraList[i] ) then
-        size = LARGE_AURA_SIZE
-        offsetY = AURA_OFFSET_Y + AURA_OFFSET_Y
-    else
-        size = SMALL_AURA_SIZE
-    end
-    if ( i == 1 ) then
-        rowWidth = size
-        self.auraRows = self.auraRows + 1
-    else
-        rowWidth = rowWidth + size + offsetX
-    end
-    if ( rowWidth > maxRowWidth ) then
-        updateFunc(self, auraName, i, numOppositeAuras, firstBuffOnRow, size, offsetX, offsetY)
-        rowWidth = size
-        self.auraRows = self.auraRows + 1
-        firstBuffOnRow = i
-        offsetY = AURA_OFFSET_Y
-    else
-        updateFunc(self, auraName, i, numOppositeAuras, i - 1, size, offsetX, offsetY)
-    end
-    end
-    end)
+-- hooksecurefunc("TargetFrame_UpdateAuraPositions", function(self, auraName, numAuras, numOppositeAuras,largeAuraList, updateFunc, maxRowWidth, offsetX)
+--     local AURA_OFFSET_Y = 2
+--     local LARGE_AURA_SIZE = 24 -- рамеер ВАШИХ баффов/дебаффов.
+--     local SMALL_AURA_SIZE = 16 -- рамеер чужих баффов/дебаффов.
+--     local size
+--     local offsetY = AURA_OFFSET_Y
+--     local rowWidth = 0
+--     local firstBuffOnRow = 1
+--     for i=1, numAuras do
+--     if ( largeAuraList[i] ) then
+--         size = LARGE_AURA_SIZE
+--         offsetY = AURA_OFFSET_Y + AURA_OFFSET_Y
+--     else
+--         size = SMALL_AURA_SIZE
+--     end
+--     if ( i == 1 ) then
+--         rowWidth = size
+--         self.auraRows = self.auraRows + 1
+--     else
+--         rowWidth = rowWidth + size + offsetX
+--     end
+--     if ( rowWidth > maxRowWidth ) then
+--         updateFunc(self, auraName, i, numOppositeAuras, firstBuffOnRow, size, offsetX, offsetY)
+--         rowWidth = size
+--         self.auraRows = self.auraRows + 1
+--         firstBuffOnRow = i
+--         offsetY = AURA_OFFSET_Y
+--     else
+--         updateFunc(self, auraName, i, numOppositeAuras, i - 1, size, offsetX, offsetY)
+--     end
+--     end
+--     end)
 
 WatchFrame:SetScale(0.5)
